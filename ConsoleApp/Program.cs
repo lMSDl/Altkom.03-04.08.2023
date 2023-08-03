@@ -21,5 +21,29 @@ Console.Write(helloWorldWithNewLine);
 helloWorldValue = "Hello, world!";
 
 Console.Write(helloWorldValue);
+Console.WriteLine();
 
 
+string helloVariable = "Hello";
+string targetVariable = "Class";
+
+//łączenie stringów za pomocą +
+helloWorldValue = helloVariable + ", " + targetVariable + "!";
+Console.WriteLine(helloWorldValue);
+
+//łączymy stringi za pomocą statycznej funkcji Concat
+helloWorldValue = string.Concat(helloVariable, ", ", targetVariable, "!");
+Console.WriteLine(helloWorldValue);
+
+//łączenie stringów za pomocą funkcji format - pierwszy parametr przyjmuje wygląd docelowy, a kolejne perametry to składowe
+// {0} {1} - miejsca w które wstawiamy wspomniane wyżej składowe (numer w klamerce oznacza indeks)
+string format = "{0}, {1}!";
+helloWorldValue = string.Format(format, helloVariable, targetVariable);
+Console.WriteLine(helloWorldValue);
+
+helloWorldValue = string.Format(format, helloVariable, "Tom");
+Console.WriteLine(helloWorldValue);
+
+//łączenie stringów za pomocą intepolacji (string interpolowany)
+helloWorldValue = $"{helloVariable}, {targetVariable}!";
+Console.WriteLine(helloWorldValue);
