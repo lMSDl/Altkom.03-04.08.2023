@@ -49,6 +49,7 @@ Console.WriteLine(5 / 3.3m);
 
 
 //zaokrąglanie wartości
+//zaokrąglanie domyślnie wykorzustyje "financial rounding" / MidpointRounding.ToEven
 Console.WriteLine(Math.Round(2.5));
 Console.WriteLine(Math.Round(3.5));
 
@@ -56,6 +57,34 @@ Console.WriteLine(Math.Round(2.5, MidpointRounding.AwayFromZero));
 Console.WriteLine(Math.Round(3.5, MidpointRounding.AwayFromZero));
 
 
+
+
+int intMax = int.MaxValue;
+long longMax = long.MaxValue;
+
+
+long longValue = intMax;
+//chcąc przypisać wartość o wyższej precyzji do zmiennej o niższej musimy zastosować rzutowanie
+int intValue = (int)longMax;
+
+Console.WriteLine(longValue);
+Console.WriteLine(intValue);
+
+intValue = int.MaxValue;
+Console.WriteLine(intValue);
+intValue = intValue + 1;
+Console.WriteLine(intValue);
+
+longValue = 128;
+intValue = (int)longValue;
+Console.WriteLine(intValue);
+
+float floatValue = int.MaxValue;
+
+Console.WriteLine(floatValue);
+
+floatValue = (float)double.MaxValue;
+Console.WriteLine(floatValue);
 
 
 
