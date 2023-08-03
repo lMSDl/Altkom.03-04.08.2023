@@ -1,37 +1,46 @@
 ﻿
 
 string inputString = Console.ReadLine();
-int intValue = int.Parse(inputString);
+//int intValue = int.Parse(inputString);
 
-if (intValue > 0)
+int intValue;
+if (!int.TryParse(inputString, out intValue)) // ! - negacja; out - parametr wyjściowy
 {
-    Console.WriteLine($"Wartość {intValue} jest większa od 0");
-}
-else if (intValue < 0)
-{
-    Console.WriteLine($"Wartość {intValue} jest mniejsza od 0");
+    Console.WriteLine("Podana wartość nie jest liczbą");
 }
 else
 {
-    Console.WriteLine($"Wartość {intValue} jest równa od 0");
-}
 
-//switch przyjmuje parametr, który jest porównywany z listą przypadków
-//każdy przypadek musi się kończyć instrukcją: break;
-switch (intValue)
-{
-    case > 0:
+
+    if (intValue > 0)
+    {
         Console.WriteLine($"Wartość {intValue} jest większa od 0");
-        break;
-    case < 0:
+    }
+    else if (intValue < 0)
+    {
         Console.WriteLine($"Wartość {intValue} jest mniejsza od 0");
-        break;
-    //default jest opcjonalny i wywoływany gdy nie znaleziono innego dopasowania
-    default:
+    }
+    else
+    {
         Console.WriteLine($"Wartość {intValue} jest równa od 0");
-        break;
-}
+    }
 
+    //switch przyjmuje parametr, który jest porównywany z listą przypadków
+    //każdy przypadek musi się kończyć instrukcją: break;
+    switch (intValue)
+    {
+        case > 0:
+            Console.WriteLine($"Wartość {intValue} jest większa od 0");
+            break;
+        case < 0:
+            Console.WriteLine($"Wartość {intValue} jest mniejsza od 0");
+            break;
+        //default jest opcjonalny i wywoływany gdy nie znaleziono innego dopasowania
+        default:
+            Console.WriteLine($"Wartość {intValue} jest równa od 0");
+            break;
+    }
+}
 
 
 Console.WriteLine("Jak masz na imię?");
@@ -51,6 +60,12 @@ switch(inputString)
         Console.WriteLine($"Cześć {inputString}! Jak się masz?");
         break;
 }
+
+
+
+
+
+
 
 
 
