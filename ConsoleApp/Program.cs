@@ -87,6 +87,17 @@ floatValue = (float)double.MaxValue;
 Console.WriteLine(floatValue);
 
 
+//parsowanie/konwersja string na int
+string value1 = Console.ReadLine();
+intValue = int.Parse(value1);
+
+//parsowanie/konwersja string na float
+string value2 = Console.ReadLine();
+floatValue = float.Parse(value2);
+
+Console.WriteLine( intValue + floatValue );
+
+
 
 void StringDemo()
 {
