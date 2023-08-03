@@ -1,101 +1,191 @@
-﻿int a = 11;
-int b = 4;
-int c;
-
-c = a + b;
-Console.WriteLine($"{a} + {b} = {c}");
-c = a - b;
-Console.WriteLine($"{a} - {b} = {c}");
-c = a * b;
-Console.WriteLine($"{a} * {b} = {c}");
-c = a / b; //część dziesiętna jest ucięta
-Console.WriteLine($"{a} / {b} = {c}");
-c = a % b; //reszta z dzielenia
-Console.WriteLine($"{a} % {b} = {c}");
-
-float aa = 11f;
-float bb = 4.0f;
-float cc;
-
-cc = aa + bb;
-Console.WriteLine($"{aa} + {bb} = {cc}");
-cc = aa - bb;
-Console.WriteLine($"{aa} - {bb} = {cc}");
-cc = aa * bb;
-Console.WriteLine($"{aa} * {bb} = {cc}");
-cc = aa / bb;
-Console.WriteLine($"{aa} / {bb} = {cc}");
-
-// kolejność działań zgodna z zasadami matematyki
-cc = 2 + 2 * 2;
-Console.WriteLine(cc);
-
-cc = (2 + 2) * 2;
-Console.WriteLine(cc);
+﻿
+string inputString = Console.ReadLine();
 
 
-Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
-Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
-Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
+bool result1 = inputString == "ala ma kota";
+bool result2 = inputString != "Baba Jaga";
 
-Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
-Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
-Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
+Console.WriteLine(result1);
+Console.WriteLine(result2);
 
-//dzielenie int przez float/double/decimal (albo odrwotnie) daje wynik w typie o wyższej precyzji
-Console.WriteLine(5 / 3.3f);
-Console.WriteLine(5 / 3.3d);
-Console.WriteLine(5 / 3.3m);
+int result3 = inputString.CompareTo("k");
+
+bool result31 = result3 == 0;
+bool result32 = result3 > 0;
+bool result33 = result3 < 0;
+
+Console.WriteLine(result31);
+Console.WriteLine(result32);
+Console.WriteLine(result33);
 
 
-//zaokrąglanie wartości
-//zaokrąglanie domyślnie wykorzustyje "financial rounding" / MidpointRounding.ToEven
-Console.WriteLine(Math.Round(2.5));
-Console.WriteLine(Math.Round(3.5));
+if (result3 == 0)
+{
+    Console.WriteLine("wartości są takie same");
+}
 
-Console.WriteLine(Math.Round(2.5, MidpointRounding.AwayFromZero));
-Console.WriteLine(Math.Round(3.5, MidpointRounding.AwayFromZero));
+if (result3 > 0)
+{
+    Console.WriteLine($"{inputString} jest za literą k");
+}
+
+if (result3 < 0)
+{
+    Console.WriteLine($"{inputString} jest przed literą k");
+}
+
+if (result3 == 0)
+{
+    Console.WriteLine("wartości są takie same");
+}
+else if (result3 > 0)
+{
+    Console.WriteLine($"{inputString} jest za literą k");
+}
+else if (result3 < 0)
+{
+    Console.WriteLine($"{inputString} jest przed literą k");
+}
 
 
 
 
-int intMax = int.MaxValue;
-long longMax = long.MaxValue;
+//<5; 10)
+inputString = Console.ReadLine();
+int intValue = int.Parse(inputString);
+
+if (intValue > 5 || intValue == 5) // || - logiczne lub
+{
+    if (intValue < 10)
+    {
+        Console.WriteLine("Wartość należy do przedziału <5; 10)");
+    }
+    else
+    {
+        Console.WriteLine("Wartość jest spoza przedziału");
+    }
+}
+else
+{
+    Console.WriteLine("Wartość jest spoza przedziału");
+}
 
 
-long longValue = intMax;
-//chcąc przypisać wartość o wyższej precyzji do zmiennej o niższej musimy zastosować rzutowanie
-int intValue = (int)longMax;
 
-Console.WriteLine(longValue);
-Console.WriteLine(intValue);
-
-intValue = int.MaxValue;
-Console.WriteLine(intValue);
-intValue = intValue + 1;
-Console.WriteLine(intValue);
-
-longValue = 128;
-intValue = (int)longValue;
-Console.WriteLine(intValue);
-
-float floatValue = int.MaxValue;
-
-Console.WriteLine(floatValue);
-
-floatValue = (float)double.MaxValue;
-Console.WriteLine(floatValue);
+// >= - większe-równe, <= - mniejsze-równe 
+if (intValue >= 5 && intValue < 10) // && - logiczne i
+{
+    Console.WriteLine("Wartość należy do przedziału <5; 10)");
+}
+else
+{
+    Console.WriteLine("Wartość jest spoza przedziału");
+}
 
 
-//parsowanie/konwersja string na int
-string value1 = Console.ReadLine();
-intValue = int.Parse(value1);
 
-//parsowanie/konwersja string na float
-string value2 = Console.ReadLine();
-floatValue = float.Parse(value2);
+void NumberDemo()
+{
 
-Console.WriteLine( intValue + floatValue );
+    int a = 11;
+    int b = 4;
+    int c;
+
+    c = a + b;
+    Console.WriteLine($"{a} + {b} = {c}");
+    c = a - b;
+    Console.WriteLine($"{a} - {b} = {c}");
+    c = a * b;
+    Console.WriteLine($"{a} * {b} = {c}");
+    c = a / b; //część dziesiętna jest ucięta
+    Console.WriteLine($"{a} / {b} = {c}");
+    c = a % b; //reszta z dzielenia
+    Console.WriteLine($"{a} % {b} = {c}");
+
+    float aa = 11f;
+    float bb = 4.0f;
+    float cc;
+
+    cc = aa + bb;
+    Console.WriteLine($"{aa} + {bb} = {cc}");
+    cc = aa - bb;
+    Console.WriteLine($"{aa} - {bb} = {cc}");
+    cc = aa * bb;
+    Console.WriteLine($"{aa} * {bb} = {cc}");
+    cc = aa / bb;
+    Console.WriteLine($"{aa} / {bb} = {cc}");
+
+    // kolejność działań zgodna z zasadami matematyki
+    cc = 2 + 2 * 2;
+    Console.WriteLine(cc);
+
+    cc = (2 + 2) * 2;
+    Console.WriteLine(cc);
+
+
+    Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
+    Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
+    Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
+
+    Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
+    Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
+    Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
+
+    //dzielenie int przez float/double/decimal (albo odrwotnie) daje wynik w typie o wyższej precyzji
+    Console.WriteLine(5 / 3.3f);
+    Console.WriteLine(5 / 3.3d);
+    Console.WriteLine(5 / 3.3m);
+
+
+    //zaokrąglanie wartości
+    //zaokrąglanie domyślnie wykorzustyje "financial rounding" / MidpointRounding.ToEven
+    Console.WriteLine(Math.Round(2.5));
+    Console.WriteLine(Math.Round(3.5));
+
+    Console.WriteLine(Math.Round(2.5, MidpointRounding.AwayFromZero));
+    Console.WriteLine(Math.Round(3.5, MidpointRounding.AwayFromZero));
+
+
+
+
+    int intMax = int.MaxValue;
+    long longMax = long.MaxValue;
+
+
+    long longValue = intMax;
+    //chcąc przypisać wartość o wyższej precyzji do zmiennej o niższej musimy zastosować rzutowanie
+    int intValue = (int)longMax;
+
+    Console.WriteLine(longValue);
+    Console.WriteLine(intValue);
+
+    intValue = int.MaxValue;
+    Console.WriteLine(intValue);
+    intValue = intValue + 1;
+    Console.WriteLine(intValue);
+
+    longValue = 128;
+    intValue = (int)longValue;
+    Console.WriteLine(intValue);
+
+    float floatValue = int.MaxValue;
+
+    Console.WriteLine(floatValue);
+
+    floatValue = (float)double.MaxValue;
+    Console.WriteLine(floatValue);
+
+
+    //parsowanie/konwersja string na int
+    string value1 = Console.ReadLine();
+    intValue = int.Parse(value1);
+
+    //parsowanie/konwersja string na float
+    string value2 = Console.ReadLine();
+    floatValue = float.Parse(value2);
+
+    Console.WriteLine(intValue + floatValue);
+}
 
 
 
