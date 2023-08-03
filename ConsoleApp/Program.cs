@@ -1,62 +1,136 @@
 ﻿
+
 string inputString = Console.ReadLine();
-
-
-bool result1 = inputString == "ala ma kota";
-bool result2 = inputString != "Baba Jaga";
-
-Console.WriteLine(result1);
-Console.WriteLine(result2);
-
-int result3 = inputString.CompareTo("k");
-
-bool result31 = result3 == 0;
-bool result32 = result3 > 0;
-bool result33 = result3 < 0;
-
-Console.WriteLine(result31);
-Console.WriteLine(result32);
-Console.WriteLine(result33);
-
-
-if (result3 == 0)
-{
-    Console.WriteLine("wartości są takie same");
-}
-
-if (result3 > 0)
-{
-    Console.WriteLine($"{inputString} jest za literą k");
-}
-
-if (result3 < 0)
-{
-    Console.WriteLine($"{inputString} jest przed literą k");
-}
-
-if (result3 == 0)
-{
-    Console.WriteLine("wartości są takie same");
-}
-else if (result3 > 0)
-{
-    Console.WriteLine($"{inputString} jest za literą k");
-}
-else if (result3 < 0)
-{
-    Console.WriteLine($"{inputString} jest przed literą k");
-}
-
-
-
-
-//<5; 10)
-inputString = Console.ReadLine();
 int intValue = int.Parse(inputString);
 
-if (intValue > 5 || intValue == 5) // || - logiczne lub
+if (intValue > 0)
 {
-    if (intValue < 10)
+    Console.WriteLine($"Wartość {intValue} jest większa od 0");
+}
+else if (intValue < 0)
+{
+    Console.WriteLine($"Wartość {intValue} jest mniejsza od 0");
+}
+else
+{
+    Console.WriteLine($"Wartość {intValue} jest równa od 0");
+}
+
+//switch przyjmuje parametr, który jest porównywany z listą przypadków
+//każdy przypadek musi się kończyć instrukcją: break;
+switch (intValue)
+{
+    case > 0:
+        Console.WriteLine($"Wartość {intValue} jest większa od 0");
+        break;
+    case < 0:
+        Console.WriteLine($"Wartość {intValue} jest mniejsza od 0");
+        break;
+    //default jest opcjonalny i wywoływany gdy nie znaleziono innego dopasowania
+    default:
+        Console.WriteLine($"Wartość {intValue} jest równa od 0");
+        break;
+}
+
+
+
+Console.WriteLine("Jak masz na imię?");
+inputString = Console.ReadLine();
+
+switch(inputString)
+{
+    case "":
+        Console.WriteLine("Szkoda, że nie chcesz podać swojego imienia");
+        break;
+    case "Alexa":
+    case "Siri":
+    case "Bixby":
+        Console.WriteLine("Hej, masz na imię tak jak elektroniczny asystent");
+        break;
+    default:
+        Console.WriteLine($"Cześć {inputString}! Jak się masz?");
+        break;
+}
+
+
+
+void IfDemo()
+{
+    string inputString = Console.ReadLine();
+
+
+    bool result1 = inputString == "ala ma kota"; // == porównanie
+    bool result2 = inputString != "Baba Jaga"; // != - różne
+
+    Console.WriteLine(result1);
+    Console.WriteLine(result2);
+
+    int result3 = inputString.CompareTo("k");
+
+    bool result31 = result3 == 0;
+    bool result32 = result3 > 0;
+    bool result33 = result3 < 0;
+
+    Console.WriteLine(result31);
+    Console.WriteLine(result32);
+    Console.WriteLine(result33);
+
+
+    if (result3 == 0)
+    {
+        Console.WriteLine("wartości są takie same");
+    }
+
+    if (result3 > 0)
+    {
+        Console.WriteLine($"{inputString} jest za literą k");
+    }
+
+    if (result3 < 0)
+    {
+        Console.WriteLine($"{inputString} jest przed literą k");
+    }
+
+    if (result3 == 0)
+    {
+        Console.WriteLine("wartości są takie same");
+    }
+    else if (result3 > 0)
+    {
+        Console.WriteLine($"{inputString} jest za literą k");
+    }
+    else if (result3 < 0)
+    {
+        Console.WriteLine($"{inputString} jest przed literą k");
+    }
+
+
+
+
+    //<5; 10)
+    inputString = Console.ReadLine();
+    int intValue = int.Parse(inputString);
+
+    if (intValue > 5 || intValue == 5) // || - logiczne lub
+    {
+        if (intValue < 10)
+        {
+            Console.WriteLine("Wartość należy do przedziału <5; 10)");
+        }
+        else
+        {
+            Console.WriteLine("Wartość jest spoza przedziału");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Wartość jest spoza przedziału");
+    }
+
+
+
+    // >= - większe-równe, <= - mniejsze-równe 
+    if (intValue >= 5 && intValue < 10) // && - logiczne i
     {
         Console.WriteLine("Wartość należy do przedziału <5; 10)");
     }
@@ -65,23 +139,6 @@ if (intValue > 5 || intValue == 5) // || - logiczne lub
         Console.WriteLine("Wartość jest spoza przedziału");
     }
 }
-else
-{
-    Console.WriteLine("Wartość jest spoza przedziału");
-}
-
-
-
-// >= - większe-równe, <= - mniejsze-równe 
-if (intValue >= 5 && intValue < 10) // && - logiczne i
-{
-    Console.WriteLine("Wartość należy do przedziału <5; 10)");
-}
-else
-{
-    Console.WriteLine("Wartość jest spoza przedziału");
-}
-
 
 
 void NumberDemo()
