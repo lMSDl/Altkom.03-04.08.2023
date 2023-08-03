@@ -1,6 +1,8 @@
 ﻿
 //deklaracja zmiennej lokalej o typie string (ciąg znaków) i nazwie helloWorldValue (nazwa dowolna)
 // ; - oznacza koniec instrukcji
+using System.Drawing;
+
 string helloWorldValue;
 //inicjalizacja zmiennej - pierwsze przypisanie wartości
 helloWorldValue = "Hello, W0rld!";
@@ -47,3 +49,36 @@ Console.WriteLine(helloWorldValue);
 //łączenie stringów za pomocą intepolacji (string interpolowany)
 helloWorldValue = $"{helloVariable}, {targetVariable}!";
 Console.WriteLine(helloWorldValue);
+
+//odczytujemy dane od uzytkjownia z konsoli
+//czytamy całą linię, czyli do znaku nowej linii (enter)
+targetVariable = Console.ReadLine();
+helloWorldValue = $"{helloVariable}, {targetVariable}!!!";
+Console.WriteLine(helloWorldValue);
+
+//zmiuana wielkości liter na małe (lower) albo duże (upper)
+string lowerHelloWorldVariable = helloWorldValue.ToLower();
+Console.WriteLine(lowerHelloWorldVariable);
+Console.WriteLine( helloWorldValue.ToUpper() );
+
+Console.WriteLine(helloWorldValue);
+Console.WriteLine(lowerHelloWorldVariable);
+
+//zastępowanie znaków stringa
+Console.WriteLine(  helloWorldValue.Replace("!!!", "???"));
+Console.WriteLine(helloWorldValue);
+
+//wycinanie fragmentów tekstu - podajemy indeks od którego chcemy wyciąć (opcjonalnie ile znaków)
+Console.WriteLine(helloWorldValue.Substring(helloWorldValue.Length - 3));
+Console.WriteLine(helloWorldValue.Substring(helloVariable.Length + 2, targetVariable.Length));
+
+//usuwanie znaków pustych/białych
+targetVariable = Console.ReadLine();
+Console.BackgroundColor = ConsoleColor.DarkBlue;
+Console.WriteLine(targetVariable);
+Console.WriteLine(targetVariable.Trim());
+Console.WriteLine(targetVariable.TrimEnd());
+Console.WriteLine(targetVariable.TrimStart());
+Console.WriteLine(targetVariable.Replace(" ", string.Empty));
+Console.ResetColor();
+
