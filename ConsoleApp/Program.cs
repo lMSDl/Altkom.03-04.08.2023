@@ -28,11 +28,13 @@ product.Price = 12.24m;
 products.Add(product);
 
 //tworzymy nowy obiekt
-product = new Product();
-//nadajemy wartości jego cechom
-product.Name = "Samochodzik";
-product.Price = 125.2m;
+product = new Product("Samochodzik", 125.2m);
+
 //dodajemy do listy
+products.Add(product);
+
+
+product = new Product();
 products.Add(product);
 
 //wybieramy każdy obiekt z listy
