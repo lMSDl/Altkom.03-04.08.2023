@@ -1,34 +1,92 @@
 ﻿
 
-Dictionary<string, int> dictionary = new Dictionary<string, int>();
-dictionary.Add("niedostateczny", 1);
-dictionary.Add("niedostateczna", 1);
-dictionary.Add("dopuszczający", 2);
-dictionary.Add("dopuszczająca", 2);
-dictionary["dostateczny"] = 3;
-dictionary["dostateczna"] = 3;
-dictionary["dobry"] = 4;
-dictionary["dobra"] = 4;
-dictionary["bradzo dobry"] = 5;
-dictionary["bardzo dobra"] = 5;
-dictionary["celujący"] = 6;
-dictionary["celująca"] = 6;
+bool stopCondidtion = false;
+//pętla while sprawdza warunek przed wejściem do ciała (ciało może nigdy się nie wykonać)
+while (! stopCondidtion)
+{ //ciało pętli
+    Console.WriteLine("Początek ciała pętli while");
+    string input = Console.ReadLine();
 
-string inputString = Console.ReadLine();
+    switch(input)
+    {
+        case "exit":
+            stopCondidtion = true;
+            //korzystając ze switch wewnątrz pętli, nie możemy używać break do przerwania pętli
+            break;
 
-//Console.WriteLine(dictionary[inputString]);
-
-int grade;
-bool result = dictionary.TryGetValue(inputString, out grade);
-if(result == true)
-{
-    Console.WriteLine(grade);
-}
-else
-{
-    Console.WriteLine($"W szkolnej skali ocen nie występuje: {inputString}");
+        default:
+            Console.WriteLine(  input);
+            break;
+    }
+    Console.WriteLine("Koniec ciała pętli while");
 }
 
+
+stopCondidtion = false;
+//pętla do-while sprawdza warunek po wykonaniu ciała (ciało zawsze wykona się przynajmniej raz)
+do
+{
+    Console.WriteLine("Początek ciała pętli do-while");
+    string input = Console.ReadLine();
+    if (input == "exit")
+    {
+        stopCondidtion = true;
+    }
+    else if(input == "break")
+    {        
+        //break przerywa pętlę w miejscu wywołania (warunek pętli nie jest ponownie sprawdzany)
+        break;
+    }
+    else if (input == "continue")
+    {
+        continue;
+    }
+    else
+    {
+        Console.WriteLine(input);
+    }
+
+    Console.WriteLine("Koniec ciała pętli do-while");
+
+} while (!stopCondidtion);
+
+
+
+Console.WriteLine("Koniec programu");
+
+
+void DictionaryDemo()
+{
+
+    Dictionary<string, int> dictionary = new Dictionary<string, int>();
+    dictionary.Add("niedostateczny", 1);
+    dictionary.Add("niedostateczna", 1);
+    dictionary.Add("dopuszczający", 2);
+    dictionary.Add("dopuszczająca", 2);
+    dictionary["dostateczny"] = 3;
+    dictionary["dostateczna"] = 3;
+    dictionary["dobry"] = 4;
+    dictionary["dobra"] = 4;
+    dictionary["bradzo dobry"] = 5;
+    dictionary["bardzo dobra"] = 5;
+    dictionary["celujący"] = 6;
+    dictionary["celująca"] = 6;
+
+    string inputString = Console.ReadLine();
+
+    //Console.WriteLine(dictionary[inputString]);
+
+    int grade;
+    bool result = dictionary.TryGetValue(inputString, out grade);
+    if (result == true)
+    {
+        Console.WriteLine(grade);
+    }
+    else
+    {
+        Console.WriteLine($"W szkolnej skali ocen nie występuje: {inputString}");
+    }
+}
 
 void ListDemo()
 {
