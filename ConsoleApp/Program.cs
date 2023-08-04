@@ -1,58 +1,164 @@
 ﻿
+// I - inicjalizacja pętli - wykonuje się tylko raz na początku
+// II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciała
+// III - ciało pętli
+// IV - akcja po wykonaniu ciała pętli - najczęściej inkrementacja licznika
+//for(I; II; IV)
+//{
+//   III;
+//}
 
-bool stopCondidtion = false;
-//pętla while sprawdza warunek przed wejściem do ciała (ciało może nigdy się nie wykonać)
-while (! stopCondidtion)
-{ //ciało pętli
-    Console.WriteLine("Początek ciała pętli while");
-    string input = Console.ReadLine();
+for(int i = 0; i < 5; i = i + 1)
+{
+    Console.WriteLine(  i  );
+}
 
-    switch(input)
-    {
-        case "exit":
-            stopCondidtion = true;
-            //korzystając ze switch wewnątrz pętli, nie możemy używać break do przerwania pętli
-            break;
+int counter = 3;
+//pomijamy etap I
+for (; counter >= 0; counter = counter - 1)
+{
+    Console.WriteLine(counter);
+}
 
-        default:
-            Console.WriteLine(  input);
-            break;
-    }
-    Console.WriteLine("Koniec ciała pętli while");
+counter = 3;
+//pomijamy etap I i IV
+for (; counter >= 0;)
+{
+    Console.WriteLine(counter);
+    counter = counter - 1;
+}
+
+counter = 3;
+//pomijamy etap I, II i IV
+//pętla nieskończona
+/*for (;;)
+{
+    Console.WriteLine(counter);
+    counter = counter - 1;
+}*/
+
+
+string input = Console.ReadLine();
+string[] stringArray = input.Split(" ");
+
+for (int i = 1; i < 5 && i < stringArray.Length; i++)
+{
+    Console.WriteLine(stringArray[i]);
 }
 
 
-stopCondidtion = false;
-//pętla do-while sprawdza warunek po wykonaniu ciała (ciało zawsze wykona się przynajmniej raz)
-do
+for (int i = 0; i < stringArray.Length; i++)
 {
-    Console.WriteLine("Początek ciała pętli do-while");
-    string input = Console.ReadLine();
-    if (input == "exit")
-    {
-        stopCondidtion = true;
-    }
-    else if(input == "break")
-    {        
-        //break przerywa pętlę w miejscu wywołania (warunek pętli nie jest ponownie sprawdzany)
+    string word = stringArray[i];
+    Console.WriteLine(word);
+}
+
+
+foreach(string word in stringArray)
+{
+    Console.WriteLine(word);
+}
+
+foreach (string word in stringArray)
+{
+    Console.WriteLine(word);
+
+    if (word.Length == 1)
         break;
-    }
-    else if (input == "continue")
+}
+
+List<string> stringList = new List<string>();
+stringList.AddRange(stringArray);
+
+/*foreach (string word in stringList)
+{
+    Console.WriteLine(word);
+
+    if(word.Length <= 2)
     {
-        continue;
+        stringList.Remove(word);
     }
-    else
+
+}*/
+
+//w przeciwieństwie do foreach, for może pracować na zmieniającej się kolekcji
+for (int i = 0; i < stringList.Count; i++)
+{
+    string word = stringList[i];
+    Console.WriteLine(word);
+
+    if (word.Length <= 2)
     {
-        Console.WriteLine(input);
+        stringList.Remove(word);
+        i = i - 1;
     }
 
-    Console.WriteLine("Koniec ciała pętli do-while");
-
-} while (!stopCondidtion);
+}
 
 
 
-Console.WriteLine("Koniec programu");
+
+
+
+
+void WhileAndDoWhileDemo()
+{
+    bool stopCondidtion = false;
+    //pętla while sprawdza warunek przed wejściem do ciała (ciało może nigdy się nie wykonać)
+    while (!stopCondidtion)
+    { //ciało pętli
+        Console.WriteLine("Początek ciała pętli while");
+        string input = Console.ReadLine();
+
+        switch (input)
+        {
+            case "exit":
+                stopCondidtion = true;
+                //korzystając ze switch wewnątrz pętli, nie możemy używać break do przerwania pętli
+                break;
+            case "continue":
+                continue;
+            default:
+                Console.WriteLine(input);
+                break;
+        }
+        Console.WriteLine("Koniec ciała pętli while");
+    }
+
+
+    stopCondidtion = false;
+    //pętla do-while sprawdza warunek po wykonaniu ciała (ciało zawsze wykona się przynajmniej raz)
+    do
+    {
+        Console.WriteLine("Początek ciała pętli do-while");
+        string input = Console.ReadLine();
+        if (input == "exit")
+        {
+            stopCondidtion = true;
+        }
+        else if (input == "break")
+        {
+            //break przerywa pętlę w miejscu wywołania (warunek pętli nie jest ponownie sprawdzany)
+            break;
+        }
+        else if (input == "continue")
+        {
+            //continue przerywa aktualną iterację i przechodzi do sprawdzenia warunku pętli
+            continue;
+        }
+        else
+        {
+            Console.WriteLine(input);
+        }
+
+        Console.WriteLine("Koniec ciała pętli do-while");
+
+    } while (!stopCondidtion);
+
+
+
+    Console.WriteLine("Koniec programu");
+}
 
 
 void DictionaryDemo()
