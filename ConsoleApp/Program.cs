@@ -1,5 +1,75 @@
 ﻿
 
+using System.Security.Cryptography.X509Certificates;
+using System.Transactions;
+
+int a = 5;
+int b = 10;
+int c = 15;
+
+// tworzymy tablicę z 3 wskazanych elementów
+int[] intArray = { a, b, c };
+//tablica indeksowana jest od 0
+Console.WriteLine( intArray[0] );
+
+
+//ostatnim elementem tablicy jest indeks n-1, gdzie n to romiar tablicy
+Console.WriteLine(intArray[2]);
+Console.WriteLine($"intArray size is {intArray.Length}");
+Console.WriteLine(intArray[intArray.Length - 1]);
+
+//tworzymy pustą (wypełniona wartościami domyślnymi) tablicę o wielkości 2
+intArray = new int[2];
+Console.WriteLine(intArray[0]);
+Console.WriteLine(intArray[intArray.Length - 1]);
+
+intArray[0] = 123;
+intArray[1] = 234;
+Console.WriteLine(intArray[0]);
+Console.WriteLine(intArray[1]);
+
+
+string[] stringArray = new string[2];
+Console.WriteLine(stringArray[0]);
+stringArray[0] = "ala ma kota";
+Console.WriteLine(stringArray[0]);
+
+
+string stringValue = Console.ReadLine();
+
+//tablica jako rezultat wywołania metody
+stringArray = stringValue.Split(" ");
+
+
+Console.WriteLine(stringArray[0]);
+Console.WriteLine(stringArray[stringArray.Length - 1]);
+
+
+//znmiana rozmiaru tablicy
+Array.Resize(ref intArray, 10);
+
+Console.WriteLine();
+Console.WriteLine(intArray[0]);
+Console.WriteLine(intArray[1]);
+Console.WriteLine($"intArray size is {intArray.Length}");
+
+Array.Sort(intArray);
+Console.WriteLine(intArray[0]);
+Console.WriteLine(intArray[1]);
+Console.WriteLine(intArray[intArray.Length - 2]);
+Console.WriteLine(intArray[intArray.Length - 1]);
+
+Array.Reverse(intArray);
+Console.WriteLine(intArray[0]);
+Console.WriteLine(intArray[1]);
+Console.WriteLine(intArray[intArray.Length - 2]);
+Console.WriteLine(intArray[intArray.Length - 1]);
+
+Array.Clear(intArray);
+Console.WriteLine(intArray[0]);
+Console.WriteLine(intArray[1]);
+Console.WriteLine(intArray[intArray.Length - 2]);
+Console.WriteLine(intArray[intArray.Length - 1]);
 
 
 void PrecisionDemo()
