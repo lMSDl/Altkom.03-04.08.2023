@@ -7,8 +7,10 @@ List<Shape> shapes = new List<Shape>();
 Shape shape = new Point();
 shapes.Add(shape);
 
-shape = new Line(4);
-shapes.Add(shape);
+Line line = new Line(4);
+shapes.Add(line);
+line.Color = "czerwony";
+
 
 
 shape = new Rectangle(6, 123);
@@ -21,12 +23,31 @@ Console.WriteLine(shape2D.CalculateArea());
 /*Shape1D shape1D = triangle;
 Console.WriteLine(shape1D.CalculateArea());*/
 
-shapes.Add(shape);
+triangle.Color = "niebieski";
+
+shapes.Add(triangle);
 
 
 
 
 foreach (Shape s in shapes)
+{
+    Console.WriteLine(s.ToString());
+}
+
+List<IColor> coloredShapes = new List<IColor>();
+/*coloredShapes.Add(line);
+coloredShapes.Add(triangle);*/
+
+foreach (Shape s in shapes)
+{
+    if(s is IColor)
+    {
+        coloredShapes.Add((IColor)s);
+    }
+}
+
+foreach (Shape s in coloredShapes)
 {
     Console.WriteLine(s.ToString());
 }

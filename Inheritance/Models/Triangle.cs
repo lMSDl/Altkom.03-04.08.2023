@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Inheritance.Models
 {
-    internal class Triangle : Shape2D
+    internal class Triangle : Shape2D, IColor
     {
         public int Angle { get; set; }
+        public string Color { get; set; }
+
         public Triangle(int width, int height, int angle) : base("Trójkąt", width, height)
         {
             Angle = angle;

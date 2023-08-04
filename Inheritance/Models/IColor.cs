@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Inheritance.Models
 {
-    internal class Line : Shape1D, IColor
+    internal interface IColor
     {
-        public Line(int width) : base("Linia", width)
-        {
-        }
-
-        public string Color { get; set; }
+        string Color { get; set; }
     }
 }
