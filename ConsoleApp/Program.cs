@@ -1,72 +1,89 @@
 ﻿
 
-string inputString = Console.ReadLine();
-//int intValue = int.Parse(inputString);
-
-int intValue;
-if (!int.TryParse(inputString, out intValue)) // ! - negacja; out - parametr wyjściowy
+void PrecisionDemo()
 {
-    Console.WriteLine("Podana wartość nie jest liczbą");
+    float floatValue = 123456.768f;
+
+    Console.WriteLine($"{floatValue:000 ### ###.### 000}");
+
+    double floatAsDoubleValue = 123456.768f;
+    double doubleValue = 123456.768d;
+    Console.WriteLine(floatValue);
+    Console.WriteLine(doubleValue);
+
+    doubleValue = 123456789.123456789;
+    decimal decimalValue = 123456789.123456789m;
+    Console.WriteLine(doubleValue);
+    Console.WriteLine(decimalValue);
+
 }
-else
+
+
+void SwitchDemo()
 {
+    string inputString = Console.ReadLine();
+    //int intValue = int.Parse(inputString);
 
 
-    if (intValue > 0)
+    int intValue;
+    if (!int.TryParse(inputString, out intValue)) // ! - negacja; out - parametr wyjściowy
     {
-        Console.WriteLine($"Wartość {intValue} jest większa od 0");
-    }
-    else if (intValue < 0)
-    {
-        Console.WriteLine($"Wartość {intValue} jest mniejsza od 0");
+        Console.WriteLine("Podana wartość nie jest liczbą");
     }
     else
     {
-        Console.WriteLine($"Wartość {intValue} jest równa od 0");
-    }
 
-    //switch przyjmuje parametr, który jest porównywany z listą przypadków
-    //każdy przypadek musi się kończyć instrukcją: break;
-    switch (intValue)
-    {
-        case > 0:
+
+        if (intValue > 0)
+        {
             Console.WriteLine($"Wartość {intValue} jest większa od 0");
-            break;
-        case < 0:
+        }
+        else if (intValue < 0)
+        {
             Console.WriteLine($"Wartość {intValue} jest mniejsza od 0");
-            break;
-        //default jest opcjonalny i wywoływany gdy nie znaleziono innego dopasowania
-        default:
+        }
+        else
+        {
             Console.WriteLine($"Wartość {intValue} jest równa od 0");
+        }
+
+        //switch przyjmuje parametr, który jest porównywany z listą przypadków
+        //każdy przypadek musi się kończyć instrukcją: break;
+        switch (intValue)
+        {
+            case > 0:
+                Console.WriteLine($"Wartość {intValue} jest większa od 0");
+                break;
+            case < 0:
+                Console.WriteLine($"Wartość {intValue} jest mniejsza od 0");
+                break;
+            //default jest opcjonalny i wywoływany gdy nie znaleziono innego dopasowania
+            default:
+                Console.WriteLine($"Wartość {intValue} jest równa od 0");
+                break;
+        }
+    }
+
+
+    Console.WriteLine("Jak masz na imię?");
+    inputString = Console.ReadLine();
+
+    switch (inputString)
+    {
+        case "":
+            Console.WriteLine("Szkoda, że nie chcesz podać swojego imienia");
+            break;
+        case "Alexa":
+        case "Siri":
+        case "Bixby":
+            Console.WriteLine("Hej, masz na imię tak jak elektroniczny asystent");
+            break;
+        default:
+            Console.WriteLine($"Cześć {inputString}! Jak się masz?");
             break;
     }
+
 }
-
-
-Console.WriteLine("Jak masz na imię?");
-inputString = Console.ReadLine();
-
-switch(inputString)
-{
-    case "":
-        Console.WriteLine("Szkoda, że nie chcesz podać swojego imienia");
-        break;
-    case "Alexa":
-    case "Siri":
-    case "Bixby":
-        Console.WriteLine("Hej, masz na imię tak jak elektroniczny asystent");
-        break;
-    default:
-        Console.WriteLine($"Cześć {inputString}! Jak się masz?");
-        break;
-}
-
-
-
-
-
-
-
 
 
 void IfDemo()
