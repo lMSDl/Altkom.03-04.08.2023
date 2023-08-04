@@ -1,101 +1,149 @@
-﻿
-// I - inicjalizacja pętli - wykonuje się tylko raz na początku
-// II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciała
-// III - ciało pętli
-// IV - akcja po wykonaniu ciała pętli - najczęściej inkrementacja licznika
-//for(I; II; IV)
-//{
-//   III;
-//}
+﻿using Models;
+using System.Reflection;
 
-for(int i = 0; i < 5; i = i + 1)
+Item item = new Item();
+//Models.Additional.Item additionalItem = new Models.Additional.Item();
+
+item.SetMyInt(3);
+
+Console.WriteLine(  item.GetMyInt() );
+
+
+item.Description = "ala ma kota";
+
+Console.WriteLine( item.Description  );
+
+item.Quantity = -34;
+
+//tworzymy kolekcję z elementami klasy produkt
+List<Product> products = new List<Product>();
+
+//tworzymy nowy obielt (instację klasy) Product
+Product product = new Product();
+//nadajemy wartości dla właściwości produktu
+product.Name = "Kapusta";
+product.Price = 12.24m;
+
+//dodajemy produkt do listy
+products.Add(product);
+
+//tworzymy nowy obiekt
+product = new Product();
+//nadajemy wartości jego cechom
+product.Name = "Samochodzik";
+product.Price = 125.2m;
+//dodajemy do listy
+products.Add(product);
+
+//wybieramy każdy obiekt z listy
+foreach (Product listItem in products)
 {
-    Console.WriteLine(  i  );
-}
-
-int counter = 3;
-//pomijamy etap I
-for (; counter >= 0; counter = counter - 1)
-{
-    Console.WriteLine(counter);
-}
-
-counter = 3;
-//pomijamy etap I i IV
-for (; counter >= 0;)
-{
-    Console.WriteLine(counter);
-    counter = counter - 1;
-}
-
-counter = 3;
-//pomijamy etap I, II i IV
-//pętla nieskończona
-/*for (;;)
-{
-    Console.WriteLine(counter);
-    counter = counter - 1;
-}*/
-
-
-string input = Console.ReadLine();
-string[] stringArray = input.Split(" ");
-
-for (int i = 1; i < 5 && i < stringArray.Length; i++)
-{
-    Console.WriteLine(stringArray[i]);
+    //wywołujemy metodę zwarającą informacje o produkcie, któa bazuje na ustawionych właściwościach
+    Console.WriteLine(listItem.ShowDetails());
 }
 
 
-for (int i = 0; i < stringArray.Length; i++)
+
+void ForForeachDemo()
 {
-    string word = stringArray[i];
-    Console.WriteLine(word);
-}
 
+    // I - inicjalizacja pętli - wykonuje się tylko raz na początku
+    // II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciała
+    // III - ciało pętli
+    // IV - akcja po wykonaniu ciała pętli - najczęściej inkrementacja licznika
+    //for(I; II; IV)
+    //{
+    //   III;
+    //}
 
-foreach(string word in stringArray)
-{
-    Console.WriteLine(word);
-}
-
-foreach (string word in stringArray)
-{
-    Console.WriteLine(word);
-
-    if (word.Length == 1)
-        break;
-}
-
-List<string> stringList = new List<string>();
-stringList.AddRange(stringArray);
-
-/*foreach (string word in stringList)
-{
-    Console.WriteLine(word);
-
-    if(word.Length <= 2)
+    for (int i = 0; i < 5; i = i + 1)
     {
-        stringList.Remove(word);
+        Console.WriteLine(i);
     }
 
-}*/
-
-//w przeciwieństwie do foreach, for może pracować na zmieniającej się kolekcji
-for (int i = 0; i < stringList.Count; i++)
-{
-    string word = stringList[i];
-    Console.WriteLine(word);
-
-    if (word.Length <= 2)
+    int counter = 3;
+    //pomijamy etap I
+    for (; counter >= 0; counter = counter - 1)
     {
-        stringList.Remove(word);
-        i = i - 1;
+        Console.WriteLine(counter);
+    }
+
+    counter = 3;
+    //pomijamy etap I i IV
+    for (; counter >= 0;)
+    {
+        Console.WriteLine(counter);
+        counter = counter - 1;
+    }
+
+    counter = 3;
+    //pomijamy etap I, II i IV
+    //pętla nieskończona
+    /*for (;;)
+    {
+        Console.WriteLine(counter);
+        counter = counter - 1;
+    }*/
+
+
+    string input = Console.ReadLine();
+    string[] stringArray = input.Split(" ");
+
+    for (int i = 1; i < 5 && i < stringArray.Length; i++)
+    {
+        Console.WriteLine(stringArray[i]);
+    }
+
+
+    for (int i = 0; i < stringArray.Length; i++)
+    {
+        string word = stringArray[i];
+        Console.WriteLine(word);
+    }
+
+
+    foreach (string word in stringArray)
+    {
+        Console.WriteLine(word);
+    }
+
+    foreach (string word in stringArray)
+    {
+        Console.WriteLine(word);
+
+        if (word.Length == 1)
+            break;
+    }
+
+    List<string> stringList = new List<string>();
+    stringList.AddRange(stringArray);
+
+    /*foreach (string word in stringList)
+    {
+        Console.WriteLine(word);
+
+        if(word.Length <= 2)
+        {
+            stringList.Remove(word);
+        }
+
+    }*/
+
+    //w przeciwieństwie do foreach, for może pracować na zmieniającej się kolekcji
+    for (int i = 0; i < stringList.Count; i++)
+    {
+        string word = stringList[i];
+        Console.WriteLine(word);
+
+        if (word.Length <= 2)
+        {
+            stringList.Remove(word);
+            i = i - 1;
+        }
+
     }
 
 }
-
-
 
 
 
