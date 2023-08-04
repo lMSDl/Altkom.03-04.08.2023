@@ -1,34 +1,67 @@
 ﻿
-int a = 5;
-int b = 10;
-int c = 15;
 
-//utworzenie listy z elementami typu int
-List<int> intList = new List<int>();
-Console.WriteLine($"List size: {intList.Count}");
-//dodawanie pojedynczych wartości do listy
-intList.Add( a );
-intList.Add( b );
-intList.Add( c );
-intList.Add(153);
-Console.WriteLine($"List size: {intList.Count}");
-//usuwanie wskazanej wartości
-intList.Remove(10);
-Console.WriteLine($"List size: {intList.Count}");
-//usuwanie wartości spod wskazanego indeksu
-intList.RemoveAt(0);
-Console.WriteLine($"List size: {intList.Count}");
+Dictionary<string, int> dictionary = new Dictionary<string, int>();
+dictionary.Add("niedostateczny", 1);
+dictionary.Add("niedostateczna", 1);
+dictionary.Add("dopuszczający", 2);
+dictionary.Add("dopuszczająca", 2);
+dictionary["dostateczny"] = 3;
+dictionary["dostateczna"] = 3;
+dictionary["dobry"] = 4;
+dictionary["dobra"] = 4;
+dictionary["bradzo dobry"] = 5;
+dictionary["bardzo dobra"] = 5;
+dictionary["celujący"] = 6;
+dictionary["celująca"] = 6;
 
-int[] intArray = { 6, 7, 8 };
+string inputString = Console.ReadLine();
 
-//dodawanie wielu wartości
-intList.AddRange(intArray);
-Console.WriteLine($"List size: {intList.Count}");
+//Console.WriteLine(dictionary[inputString]);
 
-Console.WriteLine(intList[0]);
-intList.Sort();
-Console.WriteLine(intList[0]);
+int grade;
+bool result = dictionary.TryGetValue(inputString, out grade);
+if(result == true)
+{
+    Console.WriteLine(grade);
+}
+else
+{
+    Console.WriteLine($"W szkolnej skali ocen nie występuje: {inputString}");
+}
 
+
+void ListDemo()
+{
+    int a = 5;
+    int b = 10;
+    int c = 15;
+
+    //utworzenie listy z elementami typu int
+    List<int> intList = new List<int>();
+    Console.WriteLine($"List size: {intList.Count}");
+    //dodawanie pojedynczych wartości do listy
+    intList.Add(a);
+    intList.Add(b);
+    intList.Add(c);
+    intList.Add(153);
+    Console.WriteLine($"List size: {intList.Count}");
+    //usuwanie wskazanej wartości
+    intList.Remove(10);
+    Console.WriteLine($"List size: {intList.Count}");
+    //usuwanie wartości spod wskazanego indeksu
+    intList.RemoveAt(0);
+    Console.WriteLine($"List size: {intList.Count}");
+
+    int[] intArray = { 6, 7, 8 };
+
+    //dodawanie wielu wartości
+    intList.AddRange(intArray);
+    Console.WriteLine($"List size: {intList.Count}");
+
+    Console.WriteLine(intList[0]);
+    intList.Sort();
+    Console.WriteLine(intList[0]);
+}
 
 void ArrayDemo()
 {
