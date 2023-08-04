@@ -1,5 +1,7 @@
 ﻿
 
+
+
 void PrecisionDemo()
 {
     float floatValue = 123456.768f;
@@ -8,7 +10,7 @@ void PrecisionDemo()
 
     double floatAsDoubleValue = 123456.768f;
     double doubleValue = 123456.768d;
-    Console.WriteLine(floatValue);
+    Console.WriteLine(floatAsDoubleValue);
     Console.WriteLine(doubleValue);
 
     doubleValue = 123456789.123456789;
